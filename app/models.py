@@ -7,7 +7,7 @@ import yaml
 
 def create_models():
 	data = yaml.load(open("app/yaml/data.yaml"))
-	model_all = {}
+	model_all = []
 
 	for model_name, attr in data.items():
 		class Meta:
@@ -34,7 +34,7 @@ def create_models():
 				fields[data_fields['id']] = field_type
 
 		model = type(model_name, (models.Model,), fields)
-		model_all[attr['title']] = model_name
+		model_all.append(model)
 
 		class Admin(admin.ModelAdmin):
 			fields = fields_list

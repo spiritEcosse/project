@@ -49,7 +49,7 @@ function get_data_model(model_name, this_obj) {
 			});
 
 			table += '</table>';
-			table += '<div class="add_row"><h3>Новый</h3><form>';
+			table += '<div class="add_row"><h3>Новая запись</h3><form>';
 
 			table += '<input type="hidden" name="model_name" value="' + model_name + '" >';
 
@@ -86,7 +86,7 @@ function add(this_obj) {
 		if ($(this).data('id') != undefined) {
 			var value = $(this).val();
 			var obj = $(this);
-			
+
 			if (obj.data('id') == 'CharField') {
 				if (value.length < 1 || value.length >= 255) {
 					error = true;
