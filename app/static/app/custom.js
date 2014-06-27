@@ -150,7 +150,7 @@ function add(this_obj) {
 		url: 'add/',
 		data: this_obj.parent().serialize(),
 		success: function(data) {
-			alert('hello');
+			alert('Запись добавлена. Обновите страницу.');
 		}
 	});
 }
