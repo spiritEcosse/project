@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'app/style.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app/jquery-ui.css' %}" />
+
+    <script src="{% static 'app/jquery-1.10.2.js' %}"></script>
+    <script src="{% static 'app/jquery-ui-1.10.4.custom.js' %}"></script>
+    <script type="text/javascript" src="{% static 'app/jquery.cookie.js' %} "></script>
+    <script type="text/javascript" src="{% static 'app/date.js' %} "></script>
+    <script type="text/javascript" src="{% static 'app/custom.js' %}"></script>
+    <title>{% block title %}Project{% endblock %}</title>
+<body>
+    <div class="page">
+        <div id="sidebar" >
+            <div class="header">
+                {% block sidebar %}
+                <ul>
+                    <li><a href="/app/">App</a></li>
+                </ul>
+                {% endblock %}
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div id="content" class="content">
+            {% block content %}{% endblock %}
+        </div>
+        <div class="for_footer"></div>
+    </div>
+
+    <div class="footer">
+        <div class="wrapp_footer">
+            <div class="copyright">
+                Copyright project © 2014
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{% extends "app/base.html" %}
+
+{% block title %}App{% endblock %}
+{% block content %}
+	{% if models %}
+		<div class="models">
+		    <ul>
+			    {% for model, model_name in models.items %}
+			    	<li><a class="model" onclick="get_data_model('{{model}}', $(this))" href="#" >{{ model_name }}</a></li>
+			    {% endfor %}
+
+				{% csrf_token %}
+		    </ul>
+		</div>
+	{% endif %}
+	
+	<div class="model_data">
+		
+	</div>
+{% endblock content %}
