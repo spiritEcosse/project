@@ -6,7 +6,6 @@ from django.views import generic
 from django.db.models import get_app, get_models, get_model
 from django.core import serializers
 import json
-from django.utils import simplejson
 
 # Create your views here.
 
@@ -42,11 +41,12 @@ def edit(request):
 
 def add(request):
 	model_name = request.POST['model_name']
-	model = get_model('app', model_name)
-	model = model()
+	model_name = get_model('app', model_name)
+	model = model_name()
 
 	for field_name, value in request.POST.items():
 		setattr(model, field_name, value)
 
 	model.save()
-	return HttpResponse(request)
+	data = model_name.objects.get(pk=model.id)
+	return HttpResponse(serializers.serialize('json', [data]), content_type="application/json; charset=utf8")
