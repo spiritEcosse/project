@@ -165,6 +165,7 @@ function add(this_obj, model_name) {
 
 			row += '</tr>';
 			$('.model_data > table > tbody').append(row);
+			$('input[id^="datepicker_"]').datepicker({dateFormat: 'yy-mm-dd'});
 		}
 	});
 }
